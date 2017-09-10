@@ -1,13 +1,7 @@
-#include "GRAPH.h"
+#include "matrix.h"
 
 #include <stdio.h>
 #include <stdlib.h>
-
-struct graph {
-    int V;
-    int A;
-    vertex **adj;
-};
 
 static int **MATRIXinit(int l, int c, int val) {
     int i, j;
@@ -56,11 +50,12 @@ void GRAPHshow(Graph G) {
     }
 }
 
-int GRAPHnumA(Graph G) {
-    return G->A;
+void GRAPHdestroy(Graph G) {
+    vertex i;
+    for (i = 0; i < G->V; i++)
+        free(G->adj[i]);
+    free(G->adj);
+    free(G);
 }
 
-int GRAPHnumV(Graph G) {
-    return G->V;
-}
 

@@ -1,5 +1,5 @@
-#ifndef GRAPHlists_h
-#define GRAPHlists_h
+#ifndef lists_h
+#define lists_h
 
 #define vertex int
 
@@ -19,10 +19,11 @@ struct graph {
 typedef struct graph *Graph;
 
 Graph GRAPHinit(int);  
-static link NEWnode(vertex, link);
+
 void GRAPHinsertArc(Graph, vertex, vertex); 
 void GRAPHremoveArc(Graph, vertex, vertex);
 void GRAPHshow(Graph);
+void GRAPHdestroy(Graph);
 
-#endif
+#endif /*LIST_H*/
 
