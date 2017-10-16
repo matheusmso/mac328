@@ -1,0 +1,89 @@
+%-------------------------------------------------------------------------------
+%	PACKAGES AND DOCUMENT CONFIGURATIONS
+%-------------------------------------------------------------------------------
+
+\documentclass[a4paper]{article}
+\usepackage[left=3cm, right=3cm, bottom=2cm]{geometry}
+
+\usepackage{graphicx} % Required for the inclusion of images
+\usepackage{amsmath} % Required for some math elements
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm} % Required for theorems
+\usepackage[utf8]{inputenc}
+\usepackage[usenames,dvipsnames]{color} % Required for custom colors
+\usepackage{listings} % Required for insertion of code
+\usepackage{courier} % Required for the courier font
+\usepackage{enumitem}
+\usepackage{titling}
+
+\setlength{\droptitle}{-10em} % Moves title up
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\linespread{1.6} % Double spacing
+
+%--- For theorems/lemmas/etc ---
+\newtheoremstyle{style}
+{}
+{}
+{}
+{}
+{\bfseries}
+{. }
+{ }
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
+
+\renewcommand*{\proofname}{Dem}                
+
+\theoremstyle{style}
+\newtheorem{thm}{Teorema}
+\newtheorem{prop}{Proposição}
+\newtheorem{lemma}{Lema}
+\newtheorem*{defn}{Definição}
+\newtheorem*{cor}{Corolário}
+\theoremstyle{proof}
+
+%-------------------------------------------------------------------------------
+%	MACROS
+%-------------------------------------------------------------------------------
+
+%--- Sets of numbers ---
+\newcommand{\N}{\mathbb{N}} % Natural set
+\newcommand{\Z}{\mathbb{Z}} % Integer set
+\newcommand{\Q}{\mathbb{Q}} % Rationals set
+\newcommand{\R}{\mathbb{R}} % Reals set
+
+%--- Fuck varepsilon ---
+\newcommand{\eps}{\varepsilon}
+
+%-------------------------------------------------------------------------------
+%	DOCUMENT INFORMATION
+%-------------------------------------------------------------------------------
+
+\title{Lista 8 - MAC0328} % Title
+\author{Matheus de Mello Santos Oliveira - 8642821} % Author name
+\date{} % Date for the report
+\begin{document}
+\maketitle % Insert the title, author and date
+
+%-------------------------------------------------------------------------------
+%	WRITTEN STUFF
+%-------------------------------------------------------------------------------
+
+\section{Implementação}
+Queremos implementar a função \texttt{augmentMatching()} usando busca em profundidade.
+A implementação desta se parece muito com a implementação usando busca em largura,
+basicamente sempre que a BFS adicionava alguém a fila, a DFS executa uma nova chamada.
+O seguinte programa recebe um grafo bipartido definido no arquivo in e imprime o
+tamanho de seu emparelhamento máximo.
+\section{Uso do programa}
+O programa recebe como entrada um arquivo que descreva um grafo da seguinte forma:
+na primeira linha $V$ e $A$, nas próximas $A$ linhas dois inteiros representando
+as arestas do grafo.
+\\Para compilar:
+\\\$ make ep8
+\\Para executar o código:
+\\\$ ./ep8 $<$ in
+\\Onde in é um arquivo da forma descrita acima.
+
+\end{document}
+
