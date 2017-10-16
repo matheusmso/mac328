@@ -80,8 +80,60 @@ superiormente essa função com $O(k^n)$, mas podemos perceber que o fato do
 backtrack não permitir colorações inválidas, varias dessas opções não serão
 testadas, o que torna esse upper bound bastante folgado.
 \section{Experimentos}
-Realizamos testes para $V = \{5, 10, 15, 20, 35\}$ e $E = \{V, 2V, 5V\}$ e 
-$k = \{2, 3, 4, 5, 8\}$
+Realizamos testes para $V = \{5, 10, 35\}$ e $E = \{V, 2V, 5V\}$ e 
+$k = \{2, 3, 5, 8\}$. Todos os testes foram repetidos 10 vezes.
+O número de vezes em que k cores foram suficientes para pintar o grafo.
+Linhas são números de vértices e colunas são número de arestas.
+Para $k = 2$
+\begin{tabular} { | c | c | c | c | }
+    \hline
+       & V & 2V & 5V  \\
+    \hline
+    5  & 8 & 0  &  0  \\
+    \hline
+    10 & 3 & 0  &  0  \\
+    \hline
+    35 & 0 & 0  &  0  \\
+    \hline
+\end{tabular}
+\\Para $k = 3$
+\begin{tabular} { | c | c | c | c | }
+    \hline
+       & V & 2V & 5V  \\
+    \hline
+    5  & 10 & 0   &  0  \\
+    \hline
+    10 & 10 & 10  &  0  \\
+    \hline
+    35 & 10 & 5   &  0  \\
+    \hline
+\end{tabular}
+\\Para $k = 5$
+\begin{tabular} { | c | c | c | c | }
+    \hline
+       & V & 2V & 5V  \\
+    \hline
+    5  & 10 & 10  & 10  \\
+    \hline
+    10 & 10 & 10  &  0  \\
+    \hline
+    35 & 10 & 10  &  9  \\
+    \hline
+\end{tabular}
+\\Para $k = 8$
+\begin{tabular} { | c | c | c | c | }
+    \hline
+       & V & 2V & 5V  \\
+    \hline
+    5  & 10 & 10  & 10  \\
+    \hline
+    10 & 10 & 10  &  0  \\
+    \hline
+    35 & 10 & 10  &  10 \\
+    \hline
+\end{tabular}
+\\Importante  notar que em geral a heurística gulosa retorna um resultado similar, porém
+com uma fração do custo computacional.
 \section{Uso do programa}
 O programa recebe como argumento da linha de comando o número de vértices
 o número de arestas e a quantidade de cores que desejamos usar para 

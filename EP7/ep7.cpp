@@ -53,18 +53,19 @@ int main(int argc, char* argv[]) {
     n = atoi(argv[1]);
     m = atoi(argv[2]);
     k = atoi(argv[3]);
+    srand(time(NULL));
     UGRAPHrand2(n, m);
-    for (int i = 0; i < n; i++) {
+    /*for (int i = 0; i < n; i++) {
         printf("%2d: ", i);
         for (int j : adj[i])
             printf("%2d ", j);
         printf("\n");
-    }
+    }*/
     color.resize(n, -1);
     if (go(0)) {
         printf("Possível ser colorido com %d cores\n", k);
-        for (int i = 0; i < n; i++)
-            printf("%d %d\n", i, color[i]);
+        /*for (int i = 0; i < n; i++)
+            printf("%d %d\n", i, color[i]);*/
     }
     else
         printf("Impossível ser colorido com %d ores\n", k);
