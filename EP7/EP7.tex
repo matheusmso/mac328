@@ -1,0 +1,97 @@
+%-------------------------------------------------------------------------------
+%	PACKAGES AND DOCUMENT CONFIGURATIONS
+%-------------------------------------------------------------------------------
+
+\documentclass[a4paper]{article}
+\usepackage[left=3cm, right=3cm, bottom=2cm]{geometry}
+
+\usepackage{graphicx} % Required for the inclusion of images
+\usepackage{amsmath} % Required for some math elements
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm} % Required for theorems
+\usepackage[utf8]{inputenc}
+\usepackage[usenames,dvipsnames]{color} % Required for custom colors
+\usepackage{listings} % Required for insertion of code
+\usepackage{courier} % Required for the courier font
+\usepackage{enumitem}
+\usepackage{titling}
+
+\setlength{\droptitle}{-10em} % Moves title up
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\linespread{1.6} % Double spacing
+
+%--- For theorems/lemmas/etc ---
+\newtheoremstyle{style}
+{}
+{}
+{}
+{}
+{\bfseries}
+{. }
+{ }
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
+
+\renewcommand*{\proofname}{Dem}                
+
+\theoremstyle{style}
+\newtheorem{thm}{Teorema}
+\newtheorem{prop}{Proposição}
+\newtheorem{lemma}{Lema}
+\newtheorem*{defn}{Definição}
+\newtheorem*{cor}{Corolário}
+\theoremstyle{proof}
+
+%-------------------------------------------------------------------------------
+%	MACROS
+%-------------------------------------------------------------------------------
+
+%--- Sets of numbers ---
+\newcommand{\N}{\mathbb{N}} % Natural set
+\newcommand{\Z}{\mathbb{Z}} % Integer set
+\newcommand{\Q}{\mathbb{Q}} % Rationals set
+\newcommand{\R}{\mathbb{R}} % Reals set
+
+%--- Fuck varepsilon ---
+\newcommand{\eps}{\varepsilon}
+
+%-------------------------------------------------------------------------------
+%	DOCUMENT INFORMATION
+%-------------------------------------------------------------------------------
+
+\title{Lista 7 - MAC0328} % Title
+\author{Matheus de Mello Santos Oliveira - 8642821} % Author name
+\date{} % Date for the report
+\begin{document}
+\maketitle % Insert the title, author and date
+
+%-------------------------------------------------------------------------------
+%	WRITTEN STUFF
+%-------------------------------------------------------------------------------
+
+\section{Implementação}
+Queremos encontrar uma k coloração em um grafo. Para isso realizamos um
+backtrack que realiza uma busca completa em todas as possíveis colorações
+e verifica se alguma delas é valida, isto é, para alguma dessas colorações
+todos as arestas possuem vértice de início e fim de cores diferentes.
+Uma redução no espaço de busca está implícita na ideia de um vértice não 
+deve ser colorido da mesma cor de algum de seus vizinhos. Podemos limitar
+superiormente essa função com $O(k^n)$, mas podemos perceber que o fato do
+backtrack não permitir colorações inválidas, varias dessas opções não serão
+testadas, o que torna esse upper bound bastante folgado.
+\section{Experimentos}
+Realizamos testes para $V = \{5, 10, 15, 20, 35\}$ e $E = \{V, 2V, 5V\}$ e 
+$k = \{2, 3, 4, 5, 8\}$
+\section{Uso do programa}
+O programa recebe como argumento da linha de comando o número de vértices
+o número de arestas e a quantidade de cores que desejamos usar para 
+colorir o grafo.
+\\Para compilar:
+\\\$ make
+\\Para executar o código:
+\\\$ ./ep7 [V] [A] [k]
+\\Onde $V$ é o número de vértices e $A$ é o número de arestas e $k$ é o 
+número de cores disponíveis.
+
+\end{document}
+
