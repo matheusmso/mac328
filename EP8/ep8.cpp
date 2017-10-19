@@ -31,7 +31,8 @@ bool dfsRaugment(int u) {
             int w = match[v];
             visit[w] = 1;
             parent[w] = v;
-            dfsRaugment(w);
+            if (dfsRaugment(w))
+                return true;
         }
     }
     return false;
@@ -40,7 +41,7 @@ bool dfsRaugment(int u) {
 bool augmentMatching() {
     for (int v = 0; v < n; v++) visit[v] = 0;
     for (int v = 0; v < n; v++) {
-        if (color[v] == 0 && match[v] == -1) {
+        if (color[v] == 0 && match[v] == -1 && visit[v] == 0) {
             visit[v] = 1;
             parent[v] = v;
             if (dfsRaugment(v))
